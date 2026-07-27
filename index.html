@@ -1210,9 +1210,15 @@ document.getElementById('feedList').innerHTML=FEED.map(f=>`
   t.innerHTML=items.map(i=>`<div class="t-item"><span class="t-dot">●</span><span>${i.f} ${i.n} (${i.l})</span><span class="t-amt">−${i.s}</span></div>`).join('');
 })();
 
-// Init carousel
-buildDataCarousel();
-window.addEventListener('resize',()=>{imgMode?buildImgCarousel():buildDataCarousel()});
+// Init carousel — after DOM ready
+(function initCarousel() {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', buildDataCarousel);
+  } else {
+    buildDataCarousel();
+  }
+})();
+window.addEventListener('resize',()=>{imgMode?buildImgCarousel():buildDataCarousel();});
 
 
 // ══════════════════════════════════════════════════
@@ -1339,7 +1345,7 @@ const T = {
     prize_val: 'Real savings $100–1,000+',
     game_free_note: 'Free access — no card, no commitment',
     how_title: 'How to Enter',
-    lb_title: '🏆 This Week's Leaderboard',
+    lb_title: '🏆 This Week\'s Leaderboard',
     sub_title: '📸 Submit Your Entry',
     rules_ey: 'Fair Play',
     rules_h: 'Contest Rules',
@@ -1360,22 +1366,22 @@ const T = {
     rev_ey: 'Real Reviews',
     rev_h: 'What Members Say',
     rev1_sv: 'Saved €1,000 in Dubai',
-    rev1_tx: 'Me Dubai by Meliá in Business Bay, 5-star — €600 instead of €1,600 for 8 nights. I can't justify paying full price anymore.',
+    rev1_tx: 'Me Dubai by Meliá in Business Bay, 5-star — €600 instead of €1,600 for 8 nights. I can\'t justify paying full price anymore.',
     rev_member: 'Travel Advantage Member',
     rev2_sv: 'Saved €466 in Florence',
     rev2_tx: 'Residenza Conte Di Cavour with rooftop view, 4 nights. Travel Advantage changed how I travel — I go more often and stay better.',
     rev3_sv: 'Saved $300 in Rome',
-    rev3_tx: 'Fourth trip as a member — and it's just the beginning. Central hotel with a balcony overlooking the Rome rooftops. Best decision of the year.',
+    rev3_tx: 'Fourth trip as a member — and it\'s just the beginning. Central hotel with a balcony overlooking the Rome rooftops. Best decision of the year.',
     mall_h: 'Top Brand Discounts',
     mall_sub: 'Thousands of products from world-leading brands at exclusive member prices.',
     mall_ex_lbl: 'Example',
     plans_ey: 'Membership',
     plans_h: 'Choose Your Plan',
-    plans_sub: 'Start free — see the price difference for yourself. Upgrade when you're ready.',
+    plans_sub: 'Start free — see the price difference for yourself. Upgrade when you\'re ready.',
     plans_note: 'Not sure yet? Start with a <a href="https://free.traveladvantage.com/Slyness" style="color:var(--sky);font-weight:700">free Guest Pass</a> — no card, no commitment.',
     faq_ey: 'FAQ',
     faq_h: 'Questions & Answers',
-    faq_sub: 'Didn't find your answer? Message @max.karpoff directly — I'll reply personally.',
+    faq_sub: 'Didn\'t find your answer? Message @max.karpoff directly — I\'ll reply personally.',
     guest_t: 'Try for Free',
     guest_s: 'Get guest access — book one hotel at member-only rates with no membership fee. See the difference yourself.',
     app_h: 'Book from Your Phone',
@@ -1572,8 +1578,12 @@ function rebuildRules(lang) {
   `).join('');
 }
 
-// Init on load
-setLang(currentLang);
+// Init on load — after DOM is fully ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
+} else {
+  setLang(currentLang);
+}
 
 
 // FAQ toggle
