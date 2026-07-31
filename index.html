@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" id="htmlRoot">
 <head>
+  <script>/*%%INJECT_CONFIG%%*/</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
 <title data-i18n-title="title">Travel Advantage — Путешествуй умнее</title>
@@ -89,6 +90,12 @@ a{text-decoration:none;color:inherit}
 .cat-n{font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;color:var(--text2);line-height:1.3}
 
 /* COMPARE */
+/* Картинки в карточках сравнения */
+.cc-img-wrap{position:relative;height:130px;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;flex-shrink:0;background:var(--ocean)}
+.cc-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.cc:hover .cc-img{transform:scale(1.04)}
+.cc-img-grad{position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(8,14,44,.75))}
+.cc{overflow:hidden}
 .compare-sec{background:var(--bg);padding:80px 0;position:relative;overflow:hidden}
 .compare-hdr{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:28px}
 .mode-toggle{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--border);border-radius:100px;padding:8px 16px;flex-shrink:0;cursor:pointer}
@@ -250,6 +257,9 @@ a{text-decoration:none;color:inherit}
 .le-includes{padding:0 16px 14px;display:flex;flex-wrap:wrap;gap:4px}
 .le-tag{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:3px 8px;font-size:10px;color:var(--text3)}
 
+
+
+/* License lock removed — standalone version */
 
 /* ── PRIZE EXPLANATION ── */
 .prize-exp{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:20px;margin:0 0 24px;text-align:left}
@@ -428,6 +438,9 @@ footer a{color:rgba(255,255,255,.65)}
 
 <!-- TICKER -->
 
+
+
+
 <!-- LANG SWITCHER -->
 <div class="lang-sw" id="langSw">
   <button class="lang-btn active" id="btnRu" onclick="setLang('ru')" title="Русский" aria-label="Русский">🇷🇺</button>
@@ -544,8 +557,8 @@ footer a{color:rgba(255,255,255,.65)}
       </div>
       <div style="background:var(--bg);border-radius:var(--radius);padding:28px">
         <div style="font-size:32px;margin-bottom:12px">🎟️</div>
-        <div style="font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:var(--text);margin-bottom:8px">Guest Pass — попробуй до оплаты</div>
-        <div style="font-size:14px;color:var(--text3);line-height:1.65">Когда участник получает <strong>бесплатный Guest Pass</strong> — это полный доступ к платформе и право забронировать один отель (максимум 2 ночи) по закрытым ценам. Без карты. Без обязательств. Убеждаешься сам — и только потом решаешь.</div>
+        <div style="font-family:'Nunito',sans-serif;font-size:17px;font-weight:800;color:var(--text);margin-bottom:8px">Guest Pass — новая возможность</div>
+        <div style="font-size:14px;color:var(--text3);line-height:1.65">Кто получает <strong>клубный Guest Pass</strong> — тот получает полный доступ к платформе и право забронировать один отель (максимум 2 ночи) по закрытым ценам. Без карты. Без обязательств. Убеждаешься сам — и только потом решаешь.</div>
       </div>
       <div style="background:var(--bg);border-radius:var(--radius);padding:28px">
         <div style="font-size:32px;margin-bottom:12px">💰</div>
@@ -555,11 +568,11 @@ footer a{color:rgba(255,255,255,.65)}
     </div>
 
     <div style="background:linear-gradient(135deg,var(--sky-light),#fff);border:1.5px solid var(--border);border-radius:var(--radius);padding:28px 32px">
-      <div style="font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:var(--text);margin-bottom:16px">Как это работает — 3 шага</div>
+      <div style="font-family:'Nunito',sans-serif;font-size:16px;font-weight:800;color:var(--text);margin-bottom:16px">Сравнить цены сейчас — 3 шага</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px">
         <div style="text-align:center">
           <div style="width:44px;height:44px;background:var(--sky);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-family:'Nunito',sans-serif;font-size:20px;font-weight:900;color:#fff">1</div>
-          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px">Получи Guest Pass</div>
+          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px">Если нет Guest Pass</div>
           <div style="font-size:12px;color:var(--text3);line-height:1.5">Регистрируешься бесплатно по кнопке «Узнать о платформе» — никаких карт и оплат</div>
         </div>
         <div style="text-align:center">
@@ -576,8 +589,8 @@ footer a{color:rgba(255,255,255,.65)}
     </div>
 
     <div style="text-align:center;margin-top:28px">
-      <a href="https://free.traveladvantage.com/Slyness" class="btn-main">🌐 Узнать о платформе и сравнить цены</a>
-      <p style="font-size:12px;color:var(--text4);margin-top:10px">Бесплатно · Без карты · Гостевой доступ</p>
+      <a href="https://free.traveladvantage.com/Slyness" class="btn-main">🌐 Регистрация на платформе</a>
+      <p style="font-size:12px;color:var(--text4);margin-top:10px">Бесплатно · Без привязки карты · Гостевой доступ</p>
     </div>
   </div>
 </section>
@@ -903,7 +916,7 @@ footer a{color:rgba(255,255,255,.65)}
   <div class="container">
     <div class="guest-c">
       <div class="guest-em">🎟️</div>
-      <div class="guest-t" data-i18n="guest_t">Не жди розыгрыша — получи Guest Pass сейчас</div>
+      <div class="guest-t" data-i18n="guest_t">Не жди розыгрыша — можно без Guest Pass</div>
       <div class="guest-s" data-i18n="guest_s">Зарегистрируйся бесплатно и получи гостевой доступ к платформе с реальными ценами. Посмотри сам — без обязательств, без карты. Когда будешь готов забронировать — Guest Pass снимет доплату за VIP-членство.</div>
       <a href="https://free.traveladvantage.com/Slyness" class="btn-main btn-white" style="display:flex;max-width:380px;margin:0 auto" data-i18n="btn_free2">🌐 Посмотреть цены на платформе →</a>
       <p style="font-size:11px;color:rgba(255,255,255,.4);margin-top:12px">Бесплатно · Без карты · Платформа на русском языке после входа</p>
@@ -1020,15 +1033,67 @@ const LEADERBOARD = [
   // { name:'Анастасия', city:'Москва', hotel:'Kleopatra Royal Palm, Турция', savings:'$1 209', pct:'68%' },
 ];
 
-// ─── СРАВНЕНИЯ ЦЕН (КАРУСЕЛЬ) ───
-// Добавляй карточки по шаблону, они будут в карусели
+// ─── КАРУСЕЛЬ СРАВНЕНИЙ ───
+// Строки 1043–1048 → заменить полностью на блок ниже
 const COMPARISONS = [
-  { hotel:'Marriott Al Jaddaf, Dubai', stars:5, dates:'21–28 авг 2026 · 7 ночей · 2 взрослых', room:'Deluxe, без завтрака', open:'51 561 ₽', src:'Booking.com (Genius)', member:'31 359 ₽', savings:'20 202 ₽', pct:'39%' },
-  { hotel:'Marriott Al Jaddaf, Dubai', stars:5, dates:'Добавь свои данные', room:'Тип номера', open:'00 000 ₽', src:'Booking.com', member:'00 000 ₽', savings:'00 000 ₽', pct:'0%' },
-  { hotel:'Marriott Al Jaddaf, Dubai', stars:5, dates:'Добавь свои данные', room:'Тип номера', open:'00 000 ₽', src:'Booking.com', member:'00 000 ₽', savings:'00 000 ₽', pct:'0%' },
-  { hotel:'Marriott Al Jaddaf, Dubai', stars:5, dates:'Добавь свои данные', room:'Тип номера', open:'00 000 ₽', src:'Booking.com', member:'00 000 ₽', savings:'00 000 ₽', pct:'0%' },
-  { hotel:'Marriott Al Jaddaf, Dubai', stars:5, dates:'Добавь свои данные', room:'Тип номера', open:'00 000 ₽', src:'Booking.com', member:'00 000 ₽', savings:'00 000 ₽', pct:'0%' },
+  {
+    hotel: 'OUTRIGGER Maldives Maafushivaru Resort', stars: 5,
+    dates: '3–6 сент 2026 · 3 ночи · 2 взрослых', room: 'Ocean Villa',
+    open: '$2 986 / ₽238 880', src: 'Booking.com',
+    member: '$1 552 / ₽124 160',
+    savings: '$1 434 / ₽114 720', pct: '48%',
+    img: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=600&q=80'
+  },
+  {
+    hotel: 'Hotel Chamar Paris', stars: 4,
+    dates: '11–15 ноября 2026 · 4 ночи · 2 взрослых', room: 'Deluxe Room',
+    open: '$2 139 / ₽171 120', src: 'Booking.com',
+    member: '$1 090 / ₽87 200',
+    savings: '$1 049 / ₽83 920', pct: '51%',
+    img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80'
+  },
+  {
+    hotel: 'EAST Miami', stars: 4,
+    dates: '4–7 авг 2026 · 3 ночи · 2 взрослых', room: 'Superior Room',
+    open: '$1 323 / ₽105 840', src: 'Booking.com',
+    member: '$793 / ₽63 440',
+    savings: '$530 / ₽42 400', pct: '40%',
+    img: 'https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=600&q=80'
+  },
+  {
+    hotel: 'Pestana Palace Lisboa Hotel & Monument', stars: 5,
+    dates: '2–4 сент 2026 · 2 ночи · 2 взрослых', room: 'Classic Room',
+    open: '$897 / ₽71 760', src: 'Booking.com',
+    member: '$603 / ₽48 240',
+    savings: '$294 / ₽23 520', pct: '33%',
+    img: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=600&q=80'
+  },
+  {
+    hotel: 'InterContinental Presidente Cancun Resort', stars: 5,
+    dates: '5–8 окт 2026 · 3 ночи · 2 взрослых', room: 'Deluxe Ocean View',
+    open: '$797 / ₽63 760', src: 'Booking.com',
+    member: '$486 / ₽38 880',
+    savings: '$311 / ₽24 880', pct: '40%',
+    img: 'https://images.unsplash.com/photo-1552074284-5e84efb0c9a4?w=600&q=80'
+  },
+  {
+    hotel: 'Andaz Family Suites by Hyatt — Palm Jumeira', stars: 5,
+    dates: '3–6 сент 2026 · 3 ночи · 2 взрослых', room: 'Andaz Suite',
+    open: '$431 / ₽34 480', src: 'Booking.com',
+    member: '$282 / ₽22 560',
+    savings: '$149 / ₽11 920', pct: '35%',
+    img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80'
+  },
+  {
+    hotel: 'Marriott Al Jaddaf, Dubai', stars: 5,
+    dates: '21–28 авг 2026 · 7 ночей · 2 взрослых', room: 'Deluxe, без завтрака',
+    open: '₽51 561', src: 'Booking.com (Genius)',
+    member: '₽31 359',
+    savings: '₽20 202', pct: '39%',
+    img: 'https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?w=600&q=80'
+  },
 ];
+
 // Скриншоты: добавь до 6 подписей для слотов загрузки
 const UPLOAD_LABELS = [
   'Отель 1 — Booking.com','Отель 1 — Travel Advantage',
@@ -1062,14 +1127,18 @@ function getSlidesPerView(){
 
 function buildDataCarousel(){
   const track=document.getElementById('cTrack');
-  const dots=document.getElementById('cDots');
   track.innerHTML=COMPARISONS.map(c=>`
     <div class="c-slide">
       <div class="cc">
+        ${c.img ? `
+        <div class="cc-img-wrap">
+          <img class="cc-img" src="${c.img}" loading="lazy" alt="${c.hotel}" onerror="this.parentElement.style.display='none'">
+          <div class="cc-img-grad"></div>
+        </div>` : ''}
         <div class="cc-top">
           <div class="cc-stars">${'★'.repeat(c.stars)}</div>
           <div class="cc-hotel">${c.hotel}</div>
-          <div class="cc-meta">${c.dates} · ${c.room}</div>
+          <div class="cc-meta">${c.dates}${c.room ? ' · '+c.room : ''}</div>
         </div>
         <div class="cc-body">
           <div class="pr">
@@ -1163,6 +1232,10 @@ function toggleMode(){
   document.getElementById('lbl-img').className='mode-lbl'+(imgMode?' on':'');
   imgMode?buildImgCarousel():buildDataCarousel();
 }
+
+
+
+// License validation removed — standalone version
 
 
 // ── LIFE EXPERIENCES CAROUSEL ──
